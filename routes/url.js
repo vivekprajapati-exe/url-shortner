@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const {handleGenerateNewShortUrl , handleWebsiteClick} = require('../controllers/url')
+const mongoose = require('mongoose')
 
 router.route('/')
-.get((req , res)=>{
-    res.end("welcome to the website")
-})
+.get(handleWebsiteClick)
+.post(handleGenerateNewShortUrl)
 
 module.exports = router
